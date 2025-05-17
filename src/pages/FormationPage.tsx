@@ -5,8 +5,6 @@ import { Clock, Award, Users, CheckCircle, ArrowRight, Calendar, Phone, X, Tag, 
 import { useSendEmail } from '../hooks/useSendEmail';
 import formationsConfig from '../config/formations';
 import themeConfig from '../config/theme';
-import { Formation } from '../config/types';
-import FormationIcon from '../components/FormationIcon';
 import { Link } from 'react-router-dom';
 
 // Mapping des icônes pour les formations
@@ -99,7 +97,7 @@ const FormationPage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-white bg-opacity-10 p-2 rounded-md inline-block mb-4">
               <span className="text-white font-medium">
-                {category ? category.name : 'Formation'} 
+                {category ? category.description : 'Formation'} 
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold mb-6">{formation.title}</h1>
@@ -379,11 +377,11 @@ const FormationPage = () => {
                     {formation.certificationDetails.examDetails.successRate && (
                       <div>
                         <h4 className="font-semibold mb-2">Statistiques</h4>
-                        <div className="bg-brand-50 p-4 rounded-lg">
-                          <p className="text-brand-800 font-medium mb-2">
+                        <div className="bg-brand p-4 rounded-lg">
+                          <p className="text-white font-medium mb-2">
                             Taux de réussite : {formation.certificationDetails.examDetails.successRate}
                           </p>
-                          <p className="text-gray-600">Données basées sur les certifications de l'année en cours</p>
+                          <p className="text-white">Données basées sur les certifications de l'année en cours</p>
                         </div>
                       </div>
                     )}

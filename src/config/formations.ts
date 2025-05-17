@@ -8,213 +8,148 @@ const formationsConfig: FormationsConfig = {
   // Catégories de formations
   categories: [
     {
-      id: 'langues',
-      name: 'Langues',
-      description: 'Maîtrisez de nouvelles langues pour développer vos opportunités professionnelles',
-      icon: 'Globe'
-    },
-    {
-      id: 'communication',
-      name: 'Communication',
-      description: 'Perfectionnez vos compétences en communication écrite et orale',
-      icon: 'MessageSquare'
-    },
-    {
-      id: 'management',
-      name: 'Management',
-      description: 'Développez vos compétences en gestion d\'équipe et leadership',
+      id: 'digital',
+      name: 'Digital',
+      description: 'Communication digitale et réseaux sociaux',
       icon: 'Users'
     },
-    {
-      id: 'informatique',
-      name: 'Informatique & Digital',
-      description: 'Maîtrisez les outils numériques essentiels pour votre activité',
-      icon: 'Laptop'
-    }
   ],
   
-  // Liste des formations
   formations: [
     {
-      id: 'anglais',
-      title: 'Formation Anglais',
-      shortDescription: 'Développez vos compétences en anglais professionnel',
-      fullDescription: 'Notre formation en anglais professionnel vous permet de gagner en aisance à l\'oral comme à l\'écrit dans un contexte professionnel. Adaptée à votre niveau et à vos besoins spécifiques.',
-      slug: 'formation-anglais',
-      category: 'langues',
-      image: '/images/formations/anglais.jpg',
-      duration: '40h',
-      prices: {
-        individuel: { price: '1 950€*', label: 'Éligible CPF' },
-        collectif: { price: '1 250€*', label: 'Éligible CPF' }
-      },
-      cpfEligible: true,
-      features: [
-        'Formation sur-mesure adaptée à votre niveau',
-        'Accent mis sur la pratique orale',
-        'Préparation aux situations professionnelles',
-        'Certification reconnue internationalement'
-      ],
-      certifications: [
-        'TOEIC',
-        'LINGUASKILL',
-        'BRIGHT'
-      ],
-      objectives: [
-        'Améliorer la compréhension et l\'expression orale',
-        'Enrichir le vocabulaire professionnel',
-        'Gagner en confiance lors des échanges en anglais',
-        'Maîtriser les situations courantes en contexte professionnel'
-      ],
-      program: [
-        {
-          title: 'Fondamentaux',
-          items: [
-            'Évaluation initiale et définition des objectifs',
-            'Révision des structures grammaticales essentielles',
-            'Enrichissement du vocabulaire professionnel',
-            'Amélioration de la prononciation'
-          ]
-        },
-        {
-          title: 'Communication professionnelle',
-          items: [
-            'Techniques de présentation en anglais',
-            'Participation active aux réunions',
-            'Rédaction d\'emails et de rapports',
-            'Conversations téléphoniques'
-          ]
-        },
-        {
-          title: 'Mise en pratique',
-          items: [
-            'Jeux de rôle en situations professionnelles',
-            'Études de cas concrets',
-            'Immersion dans des contextes authentiques',
-            'Préparation à la certification'
-          ]
-        }
-      ]
-    },
-    
-    {
-      id: 'francais',
-      title: 'Formation Français Langue Étrangère (FLE)',
-      shortDescription: 'Perfectionnez votre français à l\'écrit et à l\'oral',
-      fullDescription: 'Notre formation en Français Langue Étrangère (FLE) s\'adresse aux professionnels non-francophones souhaitant améliorer leur niveau de français pour évoluer dans un contexte professionnel francophone.',
-      slug: 'formation-francais',
-      category: 'langues',
-      image: '/images/formations/francais.jpg',
-      duration: '40h',
-      prices: {
-        individuel: { price: '1 950€*', label: 'Éligible CPF' },
-        collectif: { price: '1 250€*', label: 'Éligible CPF' }
-      },
-      cpfEligible: true,
-      features: [
-        'Approche personnalisée selon votre niveau',
-        'Focus sur vos besoins professionnels spécifiques',
-        'Formateurs natifs expérimentés',
-        'Préparation aux certifications officielles'
-      ],
-      certifications: [
-        'DCL FLE',
-        'TCF',
-        'TEF'
-      ],
-      objectives: [
-        'Communiquer avec aisance dans un contexte professionnel',
-        'Maîtriser les subtilités de la langue française',
-        'Rédiger des documents professionnels en français',
-        'S\'intégrer facilement dans un environnement francophone'
-      ],
-      program: [
-        {
-          title: 'Bases linguistiques',
-          items: [
-            'Évaluation du niveau et identification des besoins',
-            'Grammaire et conjugaison adaptées au niveau',
-            'Enrichissement du vocabulaire professionnel',
-            'Amélioration de la prononciation et de l\'intonation'
-          ]
-        },
-        {
-          title: 'Communication professionnelle',
-          items: [
-            'Expression orale en contexte professionnel',
-            'Compréhension de documents authentiques',
-            'Rédaction professionnelle',
-            'Communication téléphonique et en réunion'
-          ]
-        },
-        {
-          title: 'Culture et intégration',
-          items: [
-            'Codes culturels français en entreprise',
-            'Mise en situation professionnelle',
-            'Préparation à la certification',
-            'Plan d\'action personnalisé post-formation'
-          ]
-        }
-      ]
-    },
-    
-    // Ajoutez d'autres formations selon le même modèle...
-    
-    {
-      id: 'communication',
-      title: 'Formation Communication Professionnelle',
-      shortDescription: 'Perfectionnez votre communication orale et écrite',
-      fullDescription: 'Notre formation en communication professionnelle vous permet de développer des compétences essentielles pour communiquer efficacement dans tous les contextes professionnels, de la prise de parole en public à la rédaction de contenus impactants.',
-      slug: 'formation-communication',
-      category: 'communication',
-      image: '/images/formations/communication.jpg',
+      id: 'community-management',
+      title: 'Développer son activité avec le Community Management',
+      shortDescription: 'Maîtrisez les stratégies et outils du Community Management',
+      fullDescription: 'Le Community Management est essentiel pour les entreprises car il permet de construire et maintenir des relations solides avec leur audience sur les plateformes numériques. Grâce à une gestion proactive des médias sociaux, il favorise l\'engagement des clients, renforce la fidélité à la marque et génère des retours précieux pour améliorer les produits et services. En outre, le Community Management contribue à façonner une image de marque positive et à gérer les crises de réputation de manière efficace. En somme, il s\'agit d\'une stratégie incontournable pour accroître la visibilité et la crédibilité d\'une entreprise dans un monde de plus en plus connecté.',
+      slug: 'formation-community-management',
+      category: 'digital',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       duration: '21h',
       prices: {
-        individuel: { price: '1 490€*', label: 'Financement OPCO' },
-        collectif: { price: '990€*', label: 'Financement OPCO' }
+        individuel: { price: '2 450€*', label: 'Éligible CPF' },
+        collectif: { price: '1 650€*', label: 'Éligible CPF' }
       },
-      cpfEligible: false,
+      cpfEligible: true,
       features: [
-        'Méthodes pédagogiques interactives',
-        'Exercices pratiques et mises en situation',
-        'Outils concrets à appliquer immédiatement',
-        'Suivi post-formation personnalisé'
+        'Relation client renforcée',
+        'Visibilité accrue',
+        'Engagement optimisé',
+        'E-réputation maîtrisée'
       ],
-      certifications: [],
+      certifications: [
+        'RS6452 - Webmarketing & Com'
+      ],
       objectives: [
-        'Structurer efficacement son discours',
-        'Adapter sa communication selon les interlocuteurs',
-        'Maîtriser les techniques de prise de parole en public',
-        'Perfectionner sa communication écrite professionnelle'
+        'Elaborer une stratégie de Community Management',
+        'Organiser l’application opérationnelle d’un projet de Community Management',
+        'Suivre et évaluer l’impact de ses actions de Community Management'
       ],
       program: [
         {
-          title: 'Fondamentaux de la communication',
+          title: 'Module 1 : Définir sa stratégie de Community Management',
           items: [
-            'Les principes d\'une communication efficace',
-            'Identifier son style de communication',
-            'Adapter son message selon le contexte',
-            'Développer son assertivité'
+            'Définir sa cible et ses objectifs sur les réseaux sociaux',
+            'Intégrer le Community Management à sa stratégie globale',
+            'Sélectionner les plateformes adaptées et définir son budget'
           ]
         },
         {
-          title: 'Communication orale',
+          title: 'Module 2 : Créer ses comptes sur les réseaux sociaux',
           items: [
-            'Techniques de prise de parole en public',
-            'Gestion du stress et des émotions',
-            'Communication en réunion et en visioconférence',
-            'L\'art du pitch et de l\'argumentation'
+            'Élaborer une charte graphique cohérente',
+            'Créer et paramétrer ses comptes professionnels'
           ]
         },
         {
-          title: 'Communication écrite',
+          title: 'Module 3 : Animer ses comptes sociaux',
           items: [
-            'Structurer ses écrits professionnels',
-            'Rédaction d\'emails efficaces',
-            'Conception de présentations impactantes',
-            'Communication digitale et sur les réseaux sociaux'
+            'Concevoir un calendrier éditorial efficace',
+            'Créer et publier du contenu engageant',
+            'Comprendre les algorithmes et maximiser l\'engagement'
           ]
+        },
+        {
+          title: 'Module 4 : Mettre en place des actions d\'acquisition d\'abonnés',
+          items: [
+            'Développer sa communauté naturellement',
+            'Utiliser la publicité pour accélérer sa croissance'
+          ]
+        },
+        {
+          title: 'Module 5 : Mobiliser les compétences pour un projet de Community Management',
+          items: [
+            'Piloter son projet et organiser le travail des intervenants',
+            'Sélectionner les outils et plateformes adaptés'
+          ]
+        },
+        {
+          title: 'Module 6 : Analyser les résultats de sa stratégie',
+          items: [
+            'Suivi des performances et analyse des indicateurs clés',
+            'Proposition d\'axes d\'amélioration et optimisation du ROI'
+          ]
+        }
+      ],
+      publicVise: [
+        'Dirigeants de petites entreprises',
+        'Collaborateurs en charge de la communication marketing'
+      ],
+      prerequis: [
+        'Être utilisateur des réseaux sociaux',
+        'Avoir un projet de communication sur les réseaux sociaux',
+        'Justifier d\'un an d\'expérience professionnelle'
+      ],
+      teachingMethods: [
+        'Approche théorique',
+        'Exemples concrets',
+        'Partages d’expériences',
+        'Cas pédagogiques en groupe',
+        'Mises en situation, jeux de rôles, co-développement'
+      ],
+      evaluationMethods: [
+        'Évaluation des compétences entrée vs sortie',
+        'Feuilles de présence',
+        'Certificat de réalisation'
+      ],
+      certificationDetails: {
+        name: 'Développer son activité avec le Community Management',
+        code: 'RS6452',
+        organization: 'Webmarketing & Com',
+        description: 'Cette formation vous prépare à la certification « Développer son activité avec le Community Management » enregistrée à France Compétences sous le numéro RS6452',
+        examDetails: {
+          format: [
+            'Mise en situation professionnelle avec soutenance orale',
+            'Présentation de la stratégie éditoriale',
+            'Analyse des actions et outils utilisés'
+          ],
+          successRate: '95%'
+        },
+      },
+      accessibility: [
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
+      ],
+      reasons: [
+        {
+          title: 'Relation client renforcée',
+          description: 'Bâtissez une relation solide avec votre audience sur les réseaux sociaux',
+          icon: 'Users'
+        },
+        {
+          title: 'Visibilité accrue',
+          description: 'Augmentez votre visibilité et votre crédibilité sur le marché',
+          icon: 'Target'
+        },
+        {
+          title: 'Engagement optimisé',
+          description: 'Favorisez l\'engagement et la fidélisation de vos clients',
+          icon: 'MessageSquare'
+        },
+        {
+          title: 'E-réputation maîtrisée',
+          description: 'Gérez efficacement votre réputation en ligne',
+          icon: 'Star'
         }
       ]
     }
