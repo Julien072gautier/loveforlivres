@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+
+/* Global link styles with background */
+a:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.no-bg) {
+  background-color: #FFD400;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+a:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.no-bg):hover {
+  background-color: #E0BB00;
+}
+
+@layer components {
+  /* Standardized CTA Button Styles using the new color scheme */
+  .btn-primary {
+    @apply bg-[#FFD400] text-black font-medium transition-all duration-300 hover:bg-[#E0BB00] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#FFD400] focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#1BB3BA] font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border-2 border-[#1BB3BA] text-[#1BB3BA] hover:bg-[#1BB3BA]/10 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#1BB3BA]/30 focus:ring-opacity-50;
+  }
+  
+  .btn-lg {
+    @apply py-3 px-6 text-base rounded-md hover:scale-105;
+  }
+  
+  .btn-md {
+    @apply py-2.5 px-5 text-sm rounded-md hover:scale-[1.03];
+  }
+  
+  .btn-sm {
+    @apply py-2 px-4 text-xs rounded-md hover:scale-[1.02];
+  }
+  
+  .btn-rounded {
+    @apply rounded-full;
+  }
+  
+  .btn-with-icon {
+    @apply inline-flex items-center justify-center;
+  }
+}
+
+@tailwind utilities;
+
+/* Animation for pulsating border */
+@keyframes pulse-border {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-out infinite;
+}
+
+/* Process step animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.process-step-animate {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.process-step-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.process-step-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.process-step-delay-3 {
+  animation-delay: 0.45s;
+}
+
+.process-step-delay-4 {
+  animation-delay: 0.6s;
+}
+
+.process-step-delay-5 {
+  animation-delay: 0.75s;
+}

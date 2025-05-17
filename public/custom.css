@@ -1,0 +1,14 @@
+/* Custom CSS pour les liens avec fond jaune */
+
+a:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.no-bg) {
+  background-color: #FFD400;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+a:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.no-bg):hover {
+  background-color: #E0BB00;
+}
