@@ -191,8 +191,8 @@ const FormationPage = () => {
                       )}
                     </div>
                     <p className="text-gray-600 text-sm mt-2">
-                      *Les tarifs indiqués couvrent une formation mixte alliant 20% d'e-learning et 80% de Form'action. <br /><br />
-                      Cette formation professionnelle de par son caractère certifiant peut être prise en charge par le CPF. 
+                      *Vous ne trouvez pas exactement la formation qui correspond à vos enjeux, votre organisation ou votre rythme ? Aucun souci. En quelques clics, vous pouvez définir vos attentes, vos objectifs et vos modalités idéales. Nous reviendrons vers vous avec une proposition sur-mesure, alignée sur vos besoins.<br /><br />
+                      Les formations professionnelles peuvent être prises en charge par le CPF de par leur caractère certifiant. 
                       Toute action ne rentrant pas dans le cadre de l'article L6313-1 du code du travail ne rentre pas dans ce dispositif de prise en charge
                     </p>
                     <div className="mt-4">
@@ -201,7 +201,7 @@ const FormationPage = () => {
                         className="inline-flex items-center justify-center px-4 py-2 bg-brand text-white rounded-md hover:bg-brand-600 transition-colors"
                       >
                         <Target size={18} className="mr-2" />
-                        Créer la form'action qui vous ressemble
+                        Composez votre formation sur mesure
                       </Link>
                     </div>
                   </div>

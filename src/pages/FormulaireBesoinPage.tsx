@@ -52,7 +52,7 @@ const FormulaireBesoinPage = () => {
         <div className="max-w-2xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Demande de Form'action personnalisée</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Composez votre formation sur mesure</h1>
             <p className="text-xl text-gray-600">
               Créez votre parcours sur-mesure en quelques clics
             </p>

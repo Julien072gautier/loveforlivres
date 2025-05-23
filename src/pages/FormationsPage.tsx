@@ -110,10 +110,9 @@ const FormationsPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Nos Form'actions Certifiantes</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Faites évoluer vos compétences ou celles de vos équipes grâce à des formations pensées pour allier efficacité, montée en compétences et développement professionnel épanouissant.</h1>
           <p className="text-gray-600 text-lg">
-            Découvrez notre catalogue de formations certifiantes conçues pour développer vos compétences professionnelles et booster votre carrière.
-          </p>
+          Toutes nos formations peuvent faire l’objet d’un financement par les dispositifs habituels : OPCO, Pôle emploi ou autres aides à la formation. N’hésitez pas à nous contacter, nous vous accompagnons dans les démarches.</p>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">

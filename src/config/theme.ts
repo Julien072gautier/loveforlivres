@@ -19,8 +19,8 @@ const themeConfig: ThemeConfig = {
     },
     contact: {
       phone: '06 61 15 76 02',
-      email: 'phili.launay@zumaparis.com',
-      supportEmail: 'phili.launay@zumaparis.com'
+      email: 'bonjour@zuma-partners.com',
+      supportEmail: 'bonjour@zuma-partners.com'
     },
     socialMedia: {
       facebook: '',
@@ -50,12 +50,12 @@ const themeConfig: ThemeConfig = {
     header: {
       url: '/images/Logo.png',
       alt: 'Zuma',
-      link: 'https://zumaparis.com/'
+      link: 'http://www.zuma-partners.com/'
     },
     footer: {
       url: '/images/Logo.png',
       alt: 'Zuma',
-      link: 'https://zumaparis.com/'
+      link: 'http://www.zuma-partners.com/'
     },
     // Logo alternatif ou favicon
     favicon: {
