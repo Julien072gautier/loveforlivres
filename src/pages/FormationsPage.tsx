@@ -189,7 +189,7 @@ const FormationsPage: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredFormations.map((formation) => (
-            <div key={formation.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform flex flex-col">
+            <div key={formation.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] transform flex flex-col h-full min-h-[500px]">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={formation.image} 
@@ -199,35 +199,32 @@ const FormationsPage: React.FC = () => {
               </div>
               
               <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center mb-3">
+                <div className="flex items-center mb-3 min-h-[32px]">
                   <span className="bg-brand text-white text-xs font-medium px-2.5 py-0.5 rounded">
                     {formation.category}
                   </span>
                 </div>
-                
-                <div className="flex items-start mb-4">
+                <div className="flex items-start mb-4 min-h-[56px]">
                   <div className="bg-brand p-2 rounded-full mr-3 flex-shrink-0 flex items-center justify-center text-white">
                     <FormationIcon icon={formation.icon} size={20} className="" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-800">{formation.title}</h3>
                 </div>
-                
-                <p className="text-gray-600 mb-5">
+                <p className="text-gray-600 mb-5 min-h-[48px] flex items-center">
                   {formation.description}
                 </p>
-                
-                <div className="flex flex-wrap items-center justify-between mb-5 border-t border-b border-gray-100 py-3">
+                <div className="flex flex-wrap items-center justify-between mb-5 border-t border-b border-gray-100 py-3 min-h-[48px]">
                   {formation.cpf ? (
                     <>
-                    <div className="flex items-center text-sm text-gray-600 mr-3 mb-2">
+                    <div className="flex items-center text-sm text-gray-600 mr-3 mb-2 min-w-[120px]">
                     <Clock size={16} className="mr-2 text-brand-600" />
                     <span>{formation.duration}</span>
                   </div>
-                  <div className="flex items-center text-sm text-gray-600 mr-3 mb-2">
+                  <div className="flex items-center text-sm text-gray-600 mr-3 mb-2 min-w-[120px]">
                     <Tag size={16} className="mr-2 text-brand-600" />
                     <span>{formation.price}</span>
                   </div>
-                    <div className="flex items-center text-sm text-green-600 font-medium mr-3 mb-2">
+                    <div className="flex items-center text-sm text-green-600 font-medium mr-3 mb-2 min-w-[120px]">
                       <CreditCard size={16} className="mr-2 text-green-600" />
                       <span>Éligible CPF</span>
                     </div>
@@ -235,29 +232,27 @@ const FormationsPage: React.FC = () => {
                   ):
                   (
                     <div className="flex w-full items-center justify-between mb-2">
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-600 min-w-[120px]">
                         <Clock size={16} className="mr-2 text-brand-600" />
                         <span>{formation.duration}</span>
                       </div>
-                      <div className="flex-1 flex justify-center">
+                      <div className="flex-1 flex justify-center min-w-[120px]">
                         <div className="flex items-center text-sm text-gray-800">
                           <Tag size={16} className="mr-2 text-brand-600" />
                           <span>{formation.price}</span>
                         </div>
                       </div>
-                      <div className="w-[64px]" />
+                      <div className="w-[120px]" />
                     </div>
                   )}
                 </div>
-                
-                <div className="flex items-center text-sm text-gray-600 mb-5">
+                <div className="flex items-center text-sm text-gray-600 mb-5 min-h-[32px]">
                   <Award size={16} className="mr-2 text-brand-600" />
                   <span>Certifié par {formation.certification}</span>
                 </div>
-                
                 <Link 
                   to={formation.path}
-                  className="btn-primary btn-md btn-with-icon w-full"
+                  className="btn-primary btn-md btn-with-icon w-full mt-auto"
                 >
                   Découvrir cette formation <ArrowRight size={14} className="ml-2" />
                 </Link>
