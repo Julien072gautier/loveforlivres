@@ -72,7 +72,7 @@ const FormationsPage: React.FC = () => {
         category: formationsConfig.categories.find(cat => cat.id === formation.category)?.name || formation.category,
         level: "Intermédiaire", // Valeur par défaut
         duration: formation.duration,
-        certification: formation.certifications ? formation.certifications[0] : "Certification professionnelle",
+        certification: formation.certifications ? formation.certifications[0] : "",
         price: formation.prices.individuel.price,
         cpf: formation.cpfEligible,
         description: formation.shortDescription,
@@ -246,10 +246,12 @@ const FormationsPage: React.FC = () => {
                     </div>
                   )}
                 </div>
+                {formation.certification && (
                 <div className="flex items-center text-sm text-gray-600 mb-5 min-h-[32px]">
                   <Award size={16} className="mr-2 text-brand-600" />
                   <span>Certifié par {formation.certification}</span>
                 </div>
+                )}
                 <Link 
                   to={formation.path}
                   className="btn-primary btn-md btn-with-icon w-full mt-auto"

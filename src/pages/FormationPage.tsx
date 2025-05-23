@@ -191,9 +191,7 @@ const FormationPage = () => {
                       )}
                     </div>
                     <p className="text-gray-600 text-sm mt-2">
-                      *Vous ne trouvez pas exactement la formation qui correspond à vos enjeux, votre organisation ou votre rythme ? Aucun souci. En quelques clics, vous pouvez définir vos attentes, vos objectifs et vos modalités idéales. Nous reviendrons vers vous avec une proposition sur-mesure, alignée sur vos besoins.<br /><br />
-                      Les formations professionnelles peuvent être prises en charge par le CPF de par leur caractère certifiant. 
-                      Toute action ne rentrant pas dans le cadre de l'article L6313-1 du code du travail ne rentre pas dans ce dispositif de prise en charge
+                      *Vous ne trouvez pas exactement la formation qui correspond à vos enjeux, votre organisation ou votre rythme ? Aucun souci. En quelques clics, vous pouvez définir vos attentes, vos objectifs et vos modalités idéales. Nous reviendrons vers vous avec une proposition sur-mesure, alignée sur vos besoins.
                     </p>
                     <div className="mt-4">
                       <Link 
@@ -386,6 +384,12 @@ const FormationPage = () => {
                       </div>
                     )}
                   </div>
+                )}
+                {formation.cpfEligible && (
+                  <p className="text-gray-600 text-sm mt-4">
+                    *Les formations professionnelles peuvent être prises en charge par le CPF de par leur caractère certifiant. 
+                    Toute action ne rentrant pas dans le cadre de l'article L6313-1 du code du travail ne rentre pas dans ce dispositif de prise en charge
+                  </p>
                 )}
               </div>
             </section>

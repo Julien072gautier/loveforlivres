@@ -154,7 +154,7 @@ export interface Formation {
   prices: FormationPrices;
   cpfEligible: boolean;
   features: string[];
-  certifications: string[];
+  certifications?: string[];
   objectives: string[];
   program: {
     title: string;

@@ -197,9 +197,6 @@ const formationsConfig: FormationsConfig = {
         'Réseau professionnel aligné',
         'Plan d’action concret sur 3 mois'
       ],
-      certifications: [
-        'Programme non certifiant'
-      ],
       objectives: [
         'Comprendre les usages actuels de LinkedIn',
         'Créer ou optimiser son profil professionnel',
@@ -295,9 +292,6 @@ const formationsConfig: FormationsConfig = {
         'Mises en pratique guidées',
         'Automatisation des tâches',
         'Kit IA personnalisé'
-      ],
-      certifications: [
-        'Programme non certifiant'
       ],
       objectives: [
         'Comprendre les usages concrets de l’IA pour une petite entreprise',
@@ -396,9 +390,6 @@ const formationsConfig: FormationsConfig = {
         'Routines durables',
         'Plan d’action opérationnel'
       ],
-      certifications: [
-        'Programme non certifiant'
-      ],
       objectives: [
         'Comprendre les enjeux d’une collaboration numérique fluide',
         'Identifier les outils collaboratifs adaptés aux usages de l’équipe',
@@ -495,9 +486,6 @@ const formationsConfig: FormationsConfig = {
         'Recrutement digitalisé',
         'Formation modernisée',
         'Plan d’action RH opérationnel'
-      ],
-      certifications: [
-        'Programme non certifiant'
       ],
       objectives: [
         'Identifier les enjeux de la digitalisation RH',
@@ -596,9 +584,6 @@ const formationsConfig: FormationsConfig = {
         'Visibilité web renforcée',
         'Relation client optimisée',
         'Automatisation des tâches'
-      ],
-      certifications: [
-        'Programme non certifiant'
       ],
       objectives: [
         'Comprendre les leviers du numérique pour développer son activité',
