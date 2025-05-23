@@ -286,7 +286,7 @@ const formationsConfig: FormationsConfig = {
       image: '/images/IA.png', // ← Place cette image dans : C:\Users\julie\OneDrive - ACCERTIF\FORMAPRO BY ACCERTIF\COMMUNICATION\Site\Backup\zuma\public\images
       duration: '14h',
       prices: {
-        individuel: { price: '4555', label: 'nc' },
+        individuel: { price: '2500 €*', label: 'nc' },
         collectif: { price: 'nc', label: 'nc' }
       },
       cpfEligible: false,

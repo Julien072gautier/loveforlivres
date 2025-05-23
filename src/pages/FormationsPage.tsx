@@ -217,7 +217,9 @@ const FormationsPage: React.FC = () => {
                 </p>
                 
                 <div className="flex flex-wrap items-center justify-between mb-5 border-t border-b border-gray-100 py-3">
-                  <div className="flex items-center text-sm text-gray-600 mr-3 mb-2">
+                  {formation.cpf ? (
+                    <>
+                    <div className="flex items-center text-sm text-gray-600 mr-3 mb-2">
                     <Clock size={16} className="mr-2 text-brand-600" />
                     <span>{formation.duration}</span>
                   </div>
@@ -225,10 +227,25 @@ const FormationsPage: React.FC = () => {
                     <Tag size={16} className="mr-2 text-brand-600" />
                     <span>{formation.price}</span>
                   </div>
-                  {formation.cpf && (
                     <div className="flex items-center text-sm text-green-600 font-medium mr-3 mb-2">
                       <CreditCard size={16} className="mr-2 text-green-600" />
                       <span>Éligible CPF</span>
+                    </div>
+                    </>
+                  ):
+                  (
+                    <div className="flex w-full items-center justify-between mb-2">
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Clock size={16} className="mr-2 text-brand-600" />
+                        <span>{formation.duration}</span>
+                      </div>
+                      <div className="flex-1 flex justify-center">
+                        <div className="flex items-center text-sm text-gray-800">
+                          <Tag size={16} className="mr-2 text-brand-600" />
+                          <span>{formation.price}</span>
+                        </div>
+                      </div>
+                      <div className="w-[64px]" />
                     </div>
                   )}
                 </div>
