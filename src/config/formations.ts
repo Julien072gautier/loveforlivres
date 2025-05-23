@@ -190,7 +190,7 @@ const formationsConfig: FormationsConfig = {
         individuel: { price: '2500 €*', label: 'Eligible OPCO, FAF' },
         collectif: { price: 'nc', label: 'nc' }
       },
-      cpfEligible: true,
+      cpfEligible: false,
       features: [
         'Profil LinkedIn optimisé',
         'Visibilité renforcée',
