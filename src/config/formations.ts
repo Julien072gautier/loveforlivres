@@ -188,7 +188,7 @@ const formationsConfig: FormationsConfig = {
       duration: '7h',
       prices: {
         individuel: { price: '2500 €*', label: 'Eligible OPCO, FAF' },
-        collectif: { price: 'gvdyf', label: 'nc' }
+        collectif: { price: 'nc', label: 'nc' }
       },
       cpfEligible: false,
       features: [
