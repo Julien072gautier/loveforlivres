@@ -73,7 +73,7 @@ const FormationsPage: React.FC = () => {
         level: "Intermédiaire", // Valeur par défaut
         duration: formation.duration,
         certification: formation.certifications ? formation.certifications[0] : "",
-        price: formation.prices.individuel.price,
+        price: formation.prices.collectif.price,
         cpf: formation.cpfEligible,
         description: formation.shortDescription,
         image: formation.image,
@@ -110,7 +110,7 @@ const FormationsPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Faites évoluer vos compétences ou celles de vos équipes grâce à des formations pensées pour allier efficacité, montée en compétences et développement professionnel épanouissant.</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Développez vos compétences ou celles de vos équipes grâce à des formations efficaces et enrichissantes.</h1>
           <p className="text-gray-600 text-lg">
           Toutes nos formations peuvent faire l’objet d’un financement par les dispositifs habituels : OPCO, Pôle emploi ou autres aides à la formation. N’hésitez pas à nous contacter, nous vous accompagnons dans les démarches.</p>
         </div>

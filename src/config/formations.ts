@@ -49,9 +49,20 @@ const formationsConfig: FormationsConfig = {
       category: 'Communication numérique',
       image: '/images/Community.png',
       duration: '21h',
+      formateur: '',
       prices: {
-        individuel: { price: '2 450€*', label: 'Éligible CPF' },
-        collectif: { price: '1 650€*', label: 'Éligible CPF' }
+        individuel: { price: 'Dès 2920€ HT', label: 'Éligible CPF' },
+        collectif: { price: 'Dès 2440€ HT', label: 'Éligible CPF' }
+      },
+
+      dates: {
+        collectif: [
+          
+                              
+                  ],
+        individuel: [
+          
+        ]
       },
       cpfEligible: true,
       features: [
@@ -186,9 +197,18 @@ const formationsConfig: FormationsConfig = {
       category: 'Personal branding',
       image: '/images/Linkedin.png', // ← fichier à placer dans : C:\Users\julie\OneDrive - ACCERTIF\FORMAPRO BY ACCERTIF\COMMUNICATION\Site\Backup\zuma\public\images
       duration: '7h',
+      formateur: '',
       prices: {
-        individuel: { price: '2500 €*', label: 'Eligible OPCO, FAF' },
-        collectif: { price: '2500', label: 'nc' }
+        individuel: { price: 'Dès 980€ HT', label: '' },
+        collectif: { price: 'Dès 790€ HT', label: '' }
+      },
+      dates: {
+        collectif: [
+          
+        ],
+        individuel: [
+          
+        ]
       },
       cpfEligible: false,
       features: [
@@ -282,9 +302,18 @@ const formationsConfig: FormationsConfig = {
       category: 'Intelligence Artificielle',
       image: '/images/IA.png', // ← Place cette image dans : C:\Users\julie\OneDrive - ACCERTIF\FORMAPRO BY ACCERTIF\COMMUNICATION\Site\Backup\zuma\public\images
       duration: '14h',
+      formateur: '',
       prices: {
-        individuel: { price: '2500 €*', label: 'nc' },
-        collectif: { price: 'nc', label: 'nc' }
+        individuel: { price: 'Dès 2140€ HT', label: '' },
+        collectif: { price: 'Dès 1790€ HT', label: '' }
+      },
+      dates: {
+        collectif: [
+          
+        ],
+        individuel: [
+          
+        ]
       },
       cpfEligible: false,
       features: [
@@ -379,9 +408,18 @@ const formationsConfig: FormationsConfig = {
       category: 'Management',
       image: '/images/Culture.png', // ← Place cette image dans : C:\Users\julie\OneDrive - ACCERTIF\FORMAPRO BY ACCERTIF\COMMUNICATION\Site\Backup\zuma\public\images
       duration: '14h',
+      formateur: '',
       prices: {
-        individuel: { price: 'nc', label: 'nc' },
-        collectif: { price: 'nc', label: 'nc' }
+        individuel: { price: 'Dès 2140€ HT', label: '' },
+        collectif: { price: 'Dès 1790€ HT', label: '' }
+      },
+      dates: {
+        collectif: [
+          
+        ],
+        individuel: [
+          
+        ]
       },
       cpfEligible: false,
       features: [
@@ -476,9 +514,18 @@ const formationsConfig: FormationsConfig = {
       category: 'Transformation numérique',
       image: '/images/RH.png', // ← Place cette image dans : C:\Users\julie\OneDrive - ACCERTIF\FORMAPRO BY ACCERTIF\COMMUNICATION\Site\Backup\zuma\public\images
       duration: '14h',
+      formateur: '',
       prices: {
-        individuel: { price: 'nc', label: 'nc' },
-        collectif: { price: 'nc', label: 'nc' }
+        individuel: { price: 'Dès 2320€ HT', label: '' },
+        collectif: { price: 'Dès 1940€ HT', label: '' }
+      },
+      dates: {
+        collectif: [
+          
+        ],
+        individuel: [
+        
+        ]
       },
       cpfEligible: false,
       features: [
@@ -574,9 +621,18 @@ const formationsConfig: FormationsConfig = {
       category: 'Transformation numérique',
       image: '/images/Transnum.png', // ← Place cette image dans : C:\Users\julie\OneDrive - ACCERTIF\FORMAPRO BY ACCERTIF\COMMUNICATION\Site\Backup\zuma\public\images
       duration: '14h',
+      formateur: '',
       prices: {
-        individuel: { price: 'nc', label: 'nc' },
-        collectif: { price: 'nc', label: 'nc' }
+        individuel: { price: 'Dès 2140€ HT', label: '' },
+        collectif: { price: 'Dès 1790€ HT', label: '' }
+      },
+      dates: {
+        collectif: [
+          
+        ],
+        individuel: [
+          
+        ]
       },
       cpfEligible: false,
       features: [

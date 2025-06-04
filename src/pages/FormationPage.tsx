@@ -28,7 +28,7 @@ const iconMap: Record<string, React.ReactNode> = {
 const FormationPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [selectedModality, setSelectedModality] = useState<'individuel' | 'collectif'>('individuel');
+  const [selectedModality, setSelectedModality] = useState<'individuel' | 'collectif'>('collectif');
   const [isCallbackOpen, setIsCallbackOpen] = useState(false);
   const [callbackData, setCallbackData] = useState({
     name: '',
@@ -157,6 +157,17 @@ const FormationPage = () => {
                       <p className="text-gray-600">{formation.duration}</p>
                     </div>
                   </div>
+
+                  {formation.formateur && (
+  <div className="flex items-center">
+    <Users className="text-brand mr-3 flex-shrink-0" size={20} />
+    <div>
+      <p className="font-medium">Formateur</p>
+      <p className="text-gray-600">{formation.formateur}</p>
+    </div>
+  </div>
+)}
+
                   {formation.modalites && (
                     <div className="flex items-center">
                       <Calendar className="text-brand mr-3 flex-shrink-0" size={20} />
@@ -167,18 +178,18 @@ const FormationPage = () => {
                     </div>
                   )}
                   <div className="flex gap-4 mb-4">
-                    <button 
+                  <button 
+                      onClick={() => setSelectedModality('collectif')} 
+                      className={`px-4 py-2 border rounded-md ${selectedModality === 'collectif' ? 'bg-[#FFD400] text-black' : 'bg-gray-100'}`}
+                    >
+                      Collectif
+                    </button><button 
                       onClick={() => setSelectedModality('individuel')} 
                       className={`px-4 py-2 border rounded-md ${selectedModality === 'individuel' ? 'bg-[#FFD400] text-black' : 'bg-gray-100'}`}
                     >
                       Individuel
                     </button>
-                    <button 
-                      onClick={() => setSelectedModality('collectif')} 
-                      className={`px-4 py-2 border rounded-md ${selectedModality === 'collectif' ? 'bg-[#FFD400] text-black' : 'bg-gray-100'}`}
-                    >
-                      Collectif
-                    </button>
+                    
                   </div>
                   <div className="pt-4 border-t border-gray-100">
                     <div className="flex items-center mb-2">
@@ -190,22 +201,42 @@ const FormationPage = () => {
                         </span>
                       )}
                     </div>
-                    <p className="text-gray-600 text-sm mt-2">
-                      *Vous ne trouvez pas exactement la formation qui correspond à vos enjeux, votre organisation ou votre rythme ? Aucun souci. En quelques clics, vous pouvez définir vos attentes, vos objectifs et vos modalités idéales. Nous reviendrons vers vous avec une proposition sur-mesure, alignée sur vos besoins.
-                    </p>
-                    <div className="mt-4">
-                      <Link 
-                        to="/demande-formation"
-                        className="inline-flex items-center justify-center px-4 py-2 bg-brand text-white rounded-md hover:bg-brand-600 transition-colors"
-                      >
-                        <Target size={18} className="mr-2" />
-                        Composez votre formation sur mesure
-                      </Link>
-                    </div>
+                   
+                    {formation.dates && formation.dates[selectedModality] && (
+  <div className="mt-4">
+    <div className="flex items-center mb-2">
+      <Calendar size={20} className="mr-2 text-brand-600" />
+      <p className="text-medium font-medium text-gray-800">Prochaines sessions</p>
+    </div>
+    {formation.dates[selectedModality].length > 0 ? (
+      <ul className="pl-6 space-y-1 text-sm text-gray-600 list-disc">
+        {formation.dates[selectedModality].map((date, index) => (
+          <li key={index}>{date.replace('Session collective - ', '')}</li>
+        ))}
+      </ul>
+    ) : (
+      <p className="italic text-gray-500 ml-6">Aucune session prévue pour le moment</p>
+    )}
+  </div>
+)}
+                    
                   </div>
                 </div>
               </div>
-            </div>
+            </div><div className="bg-white p-6 border-t border-gray-100">
+        <p className="text-gray-600 text-m mb-4 text-center">
+          Vous ne trouvez pas exactement la formation qui correspond à vos enjeux, votre organisation ou votre rythme ? Aucun souci. En quelques clics, vous pouvez définir vos attentes, vos objectifs et vos modalités idéales. Nous reviendrons vers vous avec une proposition sur-mesure, alignée sur vos besoins.
+        </p>
+        <div className="flex justify-center w-full mt-4">
+          <Link
+            to="/demande-formation"
+            className="inline-flex items-center justify-center px-4 py-2 bg-brand text-white rounded-md hover:bg-brand-600 transition-colors mt-4"
+          >
+            <Target size={18} className="mr-2" />
+            Composez votre formation sur mesure
+          </Link>
+        </div>
+      </div>
           </section>
 
           {/* Contexte / Pourquoi suivre cette formation */}

@@ -161,7 +161,7 @@ const FormulaireBesoinPage = () => {
                       className="hidden"
                     />
                     <BookOpen className="mr-2" size={20} />
-                    <span>Form'action mixte (E-learning + pratique tutorée)</span>
+                    <span>E-learning + pratique tutorée</span>
                   </label>
                 </div>
               </div>
