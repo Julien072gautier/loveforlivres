@@ -188,10 +188,7 @@ export interface Formation {
   }[];
   formateur?: string;
   dates?: {
-    [key: string]: {
-      start: string;
-      end: string;
-    }[];
+    [key: string]: string[];
   };
 }
 

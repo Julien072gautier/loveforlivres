@@ -57,7 +57,9 @@ const formationsConfig: FormationsConfig = {
 
       dates: {
         collectif: [
-          
+          "23, 24 et 25 Juin",
+          "17, 18 et 19 Septembre",
+          "1, 2 et 3 décembre"
                               
                   ],
         individuel: [
@@ -204,7 +206,9 @@ const formationsConfig: FormationsConfig = {
       },
       dates: {
         collectif: [
-          
+          "25 Septembre",
+          "4 Novembre"
+
         ],
         individuel: [
           
@@ -309,7 +313,9 @@ const formationsConfig: FormationsConfig = {
       },
       dates: {
         collectif: [
-          
+          "22 et 23 Septembre",
+          "15 et 16 décembre"
+
         ],
         individuel: [
           
@@ -415,7 +421,7 @@ const formationsConfig: FormationsConfig = {
       },
       dates: {
         collectif: [
-          
+          "6 et 7 Octobre"
         ],
         individuel: [
           
@@ -521,7 +527,7 @@ const formationsConfig: FormationsConfig = {
       },
       dates: {
         collectif: [
-          
+          "13 et 14 Octobre"
         ],
         individuel: [
         
@@ -628,7 +634,8 @@ const formationsConfig: FormationsConfig = {
       },
       dates: {
         collectif: [
-          
+          "8 et 9 Septembre",
+          "20 et 21 Novembre"
         ],
         individuel: [
           
