@@ -187,6 +187,12 @@ export interface Formation {
     icon: string; // Nom de l'icône Lucide React
   }[];
   formateur?: string;
+  dates?: {
+    [key: string]: {
+      start: string;
+      end: string;
+    }[];
+  };
 }
 
 // Type pour la configuration des formations
