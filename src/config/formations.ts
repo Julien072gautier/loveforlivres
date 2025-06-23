@@ -57,8 +57,7 @@ const formationsConfig: FormationsConfig = {
 
       dates: {
         collectif: [
-          "23, 24 et 25 Juin",
-          "17, 18 et 19 Septembre",
+                    "17, 18 et 19 Septembre",
           "1, 2 et 3 décembre"
                               
                   ],
