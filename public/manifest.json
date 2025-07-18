@@ -1,0 +1,27 @@
+{
+  "name": "Love for Livres - Formations en développement personnel",
+  "short_name": "Love for Livres",
+  "description": "Formations en développement personnel, communication, management et sciences cognitives",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/Bleu-favicone.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/Bleu-favicone.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business", "productivity"],
+  "lang": "fr",
+  "dir": "ltr"
+} 
