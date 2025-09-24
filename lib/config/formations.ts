@@ -118,8 +118,9 @@ const formationsConfig: FormationsConfig = {
         'Certificat de réalisation remis en fin de formation'
       ],
       accessibility: [
-        'Formation accessible dans un délai de 2 semaines',
-        'Conformément à la réglementation (loi du 11 Février 2005 et Articles D.5211-1 et suivants du code du travail), LOVE FOR LIVRES s\'engage à répondre aux besoins particuliers des stagiaires en situation de handicap'
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
       ],
       reasons: [
         {
@@ -228,8 +229,9 @@ const formationsConfig: FormationsConfig = {
         'Attestation de formation : Certificat de réalisation remis en fin de formation'
       ],
       accessibility: [
-        'Formation accessible dans un délai de 2 semaines',
-        'Conformément à la réglementation (loi du 11 Février 2005 et Articles D.5211-1 et suivants du code du travail), LOVE FOR LIVRES s\'engage à répondre aux besoins particuliers des stagiaires en situation de handicap'
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
       ],
       reasons: [
         {
@@ -337,8 +339,9 @@ const formationsConfig: FormationsConfig = {
         'Attestation de formation : Certificat de réalisation remis en fin de formation'
       ],
       accessibility: [
-        'Formation accessible dans un délai de 2 semaines',
-        'Conformément à la réglementation (loi du 11 Février 2005 et Articles D.5211-1 et suivants du code du travail), LOVE FOR LIVRES s\'engage à répondre aux besoins particuliers des stagiaires en situation de handicap'
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
       ],
       reasons: [
         {
@@ -448,8 +451,9 @@ const formationsConfig: FormationsConfig = {
         'Attestation de formation : Certificat de réalisation remis en fin de formation'
       ],
       accessibility: [
-        'Formation accessible dans un délai de 2 semaines',
-        'Conformément à la réglementation (loi du 11 Février 2005 et Articles D.5211-1 et suivants du code du travail), LOVE FOR LIVRES s\'engage à répondre aux besoins particuliers des stagiaires en situation de handicap'
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
       ],
       reasons: [
         {
@@ -558,8 +562,9 @@ const formationsConfig: FormationsConfig = {
         'Attestation de formation : Certificat de réalisation remis en fin de formation'
       ],
       accessibility: [
-        'Formation accessible dans un délai de 2 semaines',
-        'Conformément à la réglementation (loi du 11 Février 2005 et Articles D.5211-1 et suivants du code du travail), LOVE FOR LIVRES s\'engage à répondre aux besoins particuliers des stagiaires en situation de handicap'
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
       ],
       reasons: [
         {
@@ -667,8 +672,9 @@ const formationsConfig: FormationsConfig = {
         'Attestation de formation : Certificat de réalisation remis en fin de formation'
       ],
       accessibility: [
-        'Formation accessible dans un délai de 2 semaines',
-        'Conformément à la réglementation (loi du 11 Février 2005 et Articles D.5211-1 et suivants du code du travail), LOVE FOR LIVRES s\'engage à répondre aux besoins particuliers des stagiaires en situation de handicap'
+        'Formation accessible sous 15 jours après inscription',
+        'Adaptations possibles sur demande pour les personnes en situation de handicap',
+        'Assistance à la connexion en cas de visioconférence via Microsoft Teams'
       ],
       reasons: [
         {

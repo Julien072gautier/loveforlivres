@@ -170,6 +170,10 @@ export interface Formation {
     code: string;
     organization: string;
     description: string;
+    partenaire?: string; // Nom du partenaire pour les formations en partenariat
+    partenaireLogo?: string; // Logo du partenaire
+    partenaireUrl?: string; // URL du partenaire
+    organizationUrl?: string; // URL de l'organisme certificateur
     examDetails?: {
       format: string[];
       successRate?: string;

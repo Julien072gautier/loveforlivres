@@ -3,12 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Head from 'next/head';
-import { Clock, Award, Users, CheckCircle, ArrowRight, Calendar, Phone, X, Tag, MessageSquare, Target, Brain, Star, Globe, BookOpen, Laptop } from 'lucide-react';
+import { Clock, Award, Users, CheckCircle, ArrowRight, Calendar, Phone, X, Tag, MessageSquare, Target, Brain, Star, Globe, BookOpen, Laptop, Shield, DollarSign, FileCheck } from 'lucide-react';
 import { useSendEmail } from '../hooks/useSendEmail';
 import { useGTM, usePageView } from '../hooks/useGTM';
 import formationsConfig from '../lib/config/formations';
 import themeConfig from '../lib/config/theme';
 import Link from 'next/link';
+import Captcha from './Captcha';
 
 // Mapping des icônes pour les formations
 const iconMap: Record<string, React.ReactNode> = {
@@ -25,7 +26,10 @@ const iconMap: Record<string, React.ReactNode> = {
   'BookOpen': <BookOpen className="mr-2" />,
   'MessageSquare': <MessageSquare className="mr-2" />,
   'Laptop': <Laptop className="mr-2" />,
-  'Star': <Star className="mr-2" />
+  'Star': <Star className="mr-2" />,
+  'Shield': <Shield className="mr-2" />,
+  'DollarSign': <DollarSign className="mr-2" />,
+  'FileCheck': <FileCheck className="mr-2" />
 };
 
 const FormationPage = () => {
@@ -35,10 +39,15 @@ const FormationPage = () => {
   const [selectedModality, setSelectedModality] = useState<'individuel' | 'collectif'>('individuel');
   const [isCallbackOpen, setIsCallbackOpen] = useState(false);
   const [callbackData, setCallbackData] = useState({
-    name: '',
+    gender: '',
+    firstName: '',
+    lastName: '',
     phone: '',
     email: '',
   });
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [captchaValid, setCaptchaValid] = useState(false);
   const { sendEmail, loading, error, success } = useSendEmail();
   const { trackFormationView, trackFormationContact, trackFormStart, trackFormSubmit, trackFormSuccess, trackFormError } = useGTM();
 
@@ -69,26 +78,155 @@ const FormationPage = () => {
     return null;
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Fonction pour formater la durée en heures (1 jour = 7 heures)
+  const formatDuration = (duration: string) => {
+    // Si la durée contient "jour" ou "jours", convertir en heures
+    if (duration.toLowerCase().includes('jour')) {
+      const match = duration.match(/(\d+)/);
+      if (match) {
+        const days = parseInt(match[1]);
+        const hours = days * 7;
+        return `${hours}h`;
+      }
+    }
+    // Si la durée contient déjà "h", la retourner telle quelle
+    if (duration.toLowerCase().includes('h')) {
+      return duration;
+    }
+    // Par défaut, retourner la durée originale
+    return duration;
+  };
+
+  // Fonction pour formater les informations de certification
+  const formatCertification = (formation: any) => {
+    if (!formation?.certificationDetails) return null;
+    
+    const { name, code, organization, partenaire } = formation.certificationDetails;
+    if (!name || !code || !organization) return null;
+    
+    // Si la formation a un code de certification
+    if (code) {
+      // Pour les formations avec partenaire, afficher "En partenariat avec [partenaire]"
+      // Sinon, afficher "Certifié par" + nom du certificateur
+      return partenaire ? `En partenariat avec ${partenaire}` : `Certifié par ${organization}`;
+    }
+    
+    // Si pas de code, ne rien afficher
+    return null;
+  };
+
+  // Fonction de validation simple
+  const validateForm = (data: any) => {
+    const errors: Record<string, string> = {};
+    
+    if (!data.firstName?.trim()) {
+      errors.firstName = 'Le prénom est requis';
+    }
+    
+    if (!data.lastName?.trim()) {
+      errors.lastName = 'Le nom est requis';
+    }
+    
+    if (!data.email?.trim()) {
+      errors.email = 'L\'email est requis';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      errors.email = 'L\'email n\'est pas valide';
+    }
+    
+    if (!data.phone?.trim()) {
+      errors.phone = 'Le téléphone est requis';
+    } else if (!/^[0-9\s\-\+\(\)]{10,}$/.test(data.phone.replace(/\s/g, ''))) {
+      errors.phone = 'Le téléphone n\'est pas valide';
+    }
+    
+    return errors;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setCallbackData(prev => ({ ...prev, [name]: value }));
     
+    // Marquer le champ comme touché
+    setTouched(prev => ({ ...prev, [name]: true }));
+    
+    // Validation en temps réel
+    if (touched[name]) {
+      const errors = validateForm({
+        firstName: name === 'firstName' ? value : callbackData.firstName,
+        lastName: name === 'lastName' ? value : callbackData.lastName,
+        email: name === 'email' ? value : callbackData.email,
+        phone: name === 'phone' ? value : callbackData.phone,
+      });
+      
+      setValidationErrors(prev => ({
+        ...prev,
+        [name]: errors[name] || ''
+      }));
+    }
+    
     // Track form start on first interaction
-    if (name === 'name' && value.length === 1) {
+    if (name === 'firstName' && value.length === 1) {
       trackFormStart('formation_contact');
     }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    
+    const errors = validateForm({
+      firstName: name === 'firstName' ? value : callbackData.firstName,
+      lastName: name === 'lastName' ? value : callbackData.lastName,
+      email: name === 'email' ? value : callbackData.email,
+      phone: name === 'phone' ? value : callbackData.phone,
+    });
+    
+    setValidationErrors(prev => ({
+      ...prev,
+      [name]: errors[name] || ''
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Vérifier la validation CAPTCHA
+    if (!captchaValid) {
+      alert('Veuillez compléter la vérification de sécurité avant d\'envoyer votre demande.');
+      return;
+    }
+    
+    // Validation complète avant envoi
+    const errors = validateForm(callbackData);
+    
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      setTouched({
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true,
+      });
+      return;
+    }
+    
     // Track form submission
     trackFormSubmit('formation_contact');
     
     const data = `Demande d'information - ${formation.title}
-    Nom: ${callbackData.name} 
-    Téléphone: ${callbackData.phone}
-    Email: ${callbackData.email}`;
+    GENRE: ${callbackData.gender === 'M' ? 'Monsieur' : 'Madame'}
+    PRENOM: ${callbackData.firstName}
+    NOM: ${callbackData.lastName}
+    EMAIL: ${callbackData.email}
+    TELEPHONE: ${callbackData.phone}
+    FORMATION: ${formation.title}
+    DATE_ENVOI: ${new Date().toLocaleDateString('fr-FR', { 
+      day: '2-digit', 
+      month: '2-digit', 
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    })}`;
     
     try {
       await sendEmail({
@@ -103,10 +241,15 @@ const FormationPage = () => {
         trackFormationContact(formation.slug);
         
         setCallbackData({
-          name: '',
+          gender: '',
+          firstName: '',
+          lastName: '',
           phone: '',
           email: '',
         });
+        setValidationErrors({});
+        setTouched({});
+        setCaptchaValid(false);
       }
     } catch (err) {
       // Track form error
@@ -188,7 +331,7 @@ const FormationPage = () => {
                     <Clock className="text-brand mr-3 flex-shrink-0" size={20} />
                     <div>
                       <p className="font-medium">Durée</p>
-                      <p className="text-gray-600">{formation.duration}</p>
+                      <p className="text-gray-600">{formatDuration(formation.duration)}</p>
                     </div>
                   </div>
 
@@ -291,6 +434,9 @@ const FormationPage = () => {
                          reason.icon === 'Target' ? <Target className="text-white" size={24} /> :
                          reason.icon === 'MessageSquare' ? <MessageSquare className="text-white" size={24} /> :
                          reason.icon === 'Star' ? <Star className="text-white" size={24} /> :
+                         reason.icon === 'Shield' ? <Shield className="text-white" size={24} /> :
+                         reason.icon === 'DollarSign' ? <DollarSign className="text-white" size={24} /> :
+                         reason.icon === 'FileCheck' ? <FileCheck className="text-white" size={24} /> :
                          <CheckCircle className="text-white" size={24} />}
                       </div>
                       <div>
@@ -463,21 +609,182 @@ const FormationPage = () => {
             </section>
           )}
 
-          {/* Accessibilité */}
-          {hasAccessibility && formation.accessibility && (
+
+
+          {/* Certification */}
+          {formation.cpfEligible && !(formation.certificationDetails?.code && formation.certificationDetails?.organization === 'Online Sales Success') && (
             <section className="mb-12">
               <div className="bg-white rounded-lg shadow-md p-8">
-                <h2 className="text-2xl font-bold mb-6">Accessibilité et inclusion</h2>
-                <ul className="space-y-4">
-                  {formation.accessibility.map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      {index % 3 === 0 ? <Calendar className="text-brand mr-3 mt-1 flex-shrink-0" size={20} /> :
-                       index % 3 === 1 ? <Users className="text-brand mr-3 mt-1 flex-shrink-0" size={20} /> :
-                       <MessageSquare className="text-brand mr-3 mt-1 flex-shrink-0" size={20} />}
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h2 className="text-2xl font-bold mb-6">Certification</h2>
+                <div className="flex items-center mb-6">
+                  <div>
+                    <p className="text-gray-600">Cette formation prépare à la certification "{formation.certificationDetails?.name || formation.title}" enregistrée à France Compétences sous le numéro <a href={`https://www.francecompetences.fr/recherche/${formation.certificationDetails?.code?.startsWith('RS') ? 'rs' : 'rncp'}/${formation.certificationDetails?.code?.replace(/^(RS|RNCP)/, '')}/`} target="_blank" rel="noopener noreferrer" className="text-brand underline hover:no-underline focus:no-underline active:no-underline" style={{backgroundColor: 'transparent', border: 'none', padding: '0', margin: '0'}}>{formation.certificationDetails?.code}</a> par l'organisme certificateur <a href={formation.certificationDetails?.organizationUrl || '#'} target="_blank" rel="noopener noreferrer" className="text-brand underline hover:no-underline focus:no-underline active:no-underline" style={{backgroundColor: 'transparent', border: 'none', padding: '0', margin: '0'}}>{formatCertification(formation)?.includes('FORMAPRO') ? 'FORMAPRO by ACCERTIF' : formation.certificationDetails?.organization}</a>.</p>
+                    <p className="text-gray-600 mt-3">A l'issue de la formation, le stagiaire s'engage à passer l'examen préparant à la certification.</p>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-4">Statistiques</h4>
+                  <div 
+                    className="p-6 rounded-lg text-white"
+                    style={{
+                      background: `linear-gradient(to right, ${themeConfig.brand.primaryColor}, ${themeConfig.brand.primaryColor}dd)`
+                    }}
+                  >
+                    <p className="text-white font-medium mb-2 text-lg">Taux de réussite : 100%</p>
+                    <p className="text-white text-opacity-90">Données basées sur les candidats ayant préparé la certification "Développer son activité avec le community management" auprès de notre organisme de formation</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Processus de candidature */}
+          {formation.cpfEligible && !(formation.certificationDetails?.code && formation.certificationDetails?.organization === 'Online Sales Success') && (
+            <section className="mb-12">
+              <div className="bg-white rounded-lg shadow-md p-8">
+                <div className="flex items-center mb-6">
+                  <div 
+                    className="p-3 rounded-full mr-4"
+                    style={{
+                      background: `linear-gradient(to right, ${themeConfig.brand.primaryColor}, ${themeConfig.brand.primaryColor}dd)`
+                    }}
+                  >
+                    <Users className="text-white" size={24} />
+                  </div>
+                  <h2 className="text-2xl font-bold">Processus de candidature</h2>
+                </div>
+                
+                <div className="mb-8">
+                  <div className="mb-6">
+                    <h3 className="font-semibold mb-4 text-lg text-gray-800">Comment s&apos;inscrire ?</h3>
+                    <p className="text-gray-600 mb-4">Afin de s&apos;inscrire à la certification, le candidat devra transmettre son dossier de candidature accompagné d&apos;un CV à jour.</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-semibold mb-3 text-lg text-gray-800">Documents requis</h3>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-center">
+                        <CheckCircle className="text-brand mr-2 flex-shrink-0" size={16} />
+                        <span>Dossier de candidature complet</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="text-brand mr-2 flex-shrink-0" size={16} />
+                        <span>CV à jour</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Section Accessibilité */}
+                <div 
+                  className="p-6 rounded-lg text-white"
+                  style={{
+                    background: `linear-gradient(to right, ${themeConfig.brand.primaryColor}, ${themeConfig.brand.primaryColor}dd)`
+                  }}
+                >
+                  <div className="flex items-start">
+                    <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4 flex-shrink-0">
+                      <Users className="text-white" size={24} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold mb-3 text-lg text-white">Accessibilité de la formation</h3>
+                      <p className="text-white text-opacity-90 mb-4">
+                        Formation accessible sous 15 jours après inscription.
+                      </p>
+                      <h4 className="font-semibold mb-3 text-lg text-white">Adaptation des conditions d&apos;examen aux personnes en situation de handicap</h4>
+                      <p className="text-white text-opacity-90 mb-4">
+                        Le référent handicap prendra en compte dès l&apos;inscription du candidat sa situation de handicap, si celle-ci est mentionnée. Il sera alors proposé au candidat un entretien afin d&apos;envisager avec lui les aménagements qui pourront être apportés.
+                      </p>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Partenariat pour formations importées */}
+          {formation.cpfEligible && formation.certificationDetails?.code && formation.certificationDetails?.partenaire && (
+            <section className="mb-12">
+              <div className="bg-white rounded-lg shadow-md p-8">
+                <h2 className="text-2xl font-bold mb-6 text-center">Formation en partenariat avec :</h2>
+                <div className="text-center">
+                  {formation.certificationDetails?.partenaireLogo && (
+                    <div className="mb-6">
+                      <img 
+                        src={formation.certificationDetails.partenaireLogo} 
+                        alt={`Logo ${formation.certificationDetails?.partenaire}`}
+                        className="h-20 w-auto object-contain mx-auto"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <a href={formation.certificationDetails?.partenaireUrl || '#'} target="_blank" rel="noopener noreferrer" className="text-brand underline hover:no-underline focus:no-underline active:no-underline text-lg font-medium" style={{backgroundColor: 'transparent', border: 'none', padding: '0', margin: '0'}}>
+                      Découvrir notre partenaire
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Accessibilité pour formations en partenariat */}
+          {formation.cpfEligible && formation.certificationDetails?.code && formation.certificationDetails?.partenaire && hasAccessibility && formation.accessibility && (
+            <section className="mb-12">
+              <div 
+                className="p-6 rounded-lg text-white"
+                style={{
+                  background: `linear-gradient(to right, ${themeConfig.brand.primaryColor}, ${themeConfig.brand.primaryColor}dd)`
+                }}
+              >
+                <div className="flex items-start">
+                  <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4 flex-shrink-0">
+                    <Users className="text-white" size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold mb-3 text-lg text-white">Accessibilité de la formation</h3>
+                    <ul className="space-y-2 text-white text-opacity-90">
+                      {formation.accessibility.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <CheckCircle className="text-white mr-2 mt-1 flex-shrink-0" size={16} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Accessibilité pour formations non éligibles CPF */}
+          {!formation.cpfEligible && hasAccessibility && formation.accessibility && (
+            <section className="mb-12">
+              <div 
+                className="p-6 rounded-lg text-white"
+                style={{
+                  background: `linear-gradient(to right, ${themeConfig.brand.primaryColor}, ${themeConfig.brand.primaryColor}dd)`
+                }}
+              >
+                <div className="flex items-start">
+                  <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4 flex-shrink-0">
+                    <Users className="text-white" size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold mb-3 text-lg text-white">Accessibilité de la formation</h3>
+                    <p className="text-white text-opacity-90 mb-4">
+                      Formation accessible sous 15 jours après inscription.
+                    </p>
+                    <h4 className="font-semibold mb-3 text-lg text-white">Adaptation des conditions d&apos;examen aux personnes en situation de handicap</h4>
+                    <p className="text-white text-opacity-90 mb-4">
+                      Le référent handicap prendra en compte dès l&apos;inscription du candidat sa situation de handicap, si celle-ci est mentionnée. Il sera alors proposé au candidat un entretien afin d&apos;envisager avec lui les aménagements qui pourront être apportés.
+                    </p>
+                    
+                  </div>
+                </div>
               </div>
             </section>
           )}
@@ -526,42 +833,151 @@ const FormationPage = () => {
                     Intéressé(e) par notre formation " {formation.title} " ? 
                     Laissez-nous vos coordonnées et un conseiller vous contactera sous 24h.
                   </p>
-                  <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                      <label htmlFor="name" className="block text-gray-700 mb-2">Nom complet</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={callbackData.name}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand"
-                        required
-                      />
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Genre */}
+                    <div>
+                      <label className="block text-gray-700 font-medium mb-2">
+                        Genre *
+                      </label>
+                      <div className="grid grid-cols-2 gap-4">
+                        <label className={`
+                          flex items-center justify-center p-3 rounded-lg border-2 cursor-pointer transition-all
+                          ${callbackData.gender === 'M' 
+                            ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                            : 'border-gray-200 hover:border-blue-300'}
+                        `}>
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="M"
+                            checked={callbackData.gender === 'M'}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="hidden"
+                            required
+                          />
+                          <span>Monsieur</span>
+                        </label>
+                        <label className={`
+                          flex items-center justify-center p-3 rounded-lg border-2 cursor-pointer transition-all
+                          ${callbackData.gender === 'F' 
+                            ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                            : 'border-gray-200 hover:border-blue-300'}
+                        `}>
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="F"
+                            checked={callbackData.gender === 'F'}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="hidden"
+                            required
+                          />
+                          <span>Madame</span>
+                        </label>
+                      </div>
                     </div>
-                    <div className="mb-4">
-                      <label htmlFor="phone" className="block text-gray-700 mb-2">Téléphone</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={callbackData.phone}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand"
-                        required
-                      />
+
+                    {/* Prénom et Nom */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="firstName" className="block text-gray-700 font-medium mb-2">
+                          Prénom *
+                        </label>
+                        <input
+                          type="text"
+                          id="firstName"
+                          name="firstName"
+                          value={callbackData.firstName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                            touched.firstName && validationErrors.firstName 
+                              ? 'border-red-500' 
+                              : 'border-gray-300'
+                          }`}
+                          required
+                        />
+                        {touched.firstName && validationErrors.firstName && (
+                          <p className="text-red-500 text-sm mt-1">{validationErrors.firstName}</p>
+                        )}
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="lastName" className="block text-gray-700 font-medium mb-2">
+                          Nom *
+                        </label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
+                          value={callbackData.lastName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                            touched.lastName && validationErrors.lastName 
+                              ? 'border-red-500' 
+                              : 'border-gray-300'
+                          }`}
+                          required
+                        />
+                        {touched.lastName && validationErrors.lastName && (
+                          <p className="text-red-500 text-sm mt-1">{validationErrors.lastName}</p>
+                        )}
+                      </div>
                     </div>
-                    <div className="mb-6">
-                      <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                        Email *
+                      </label>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={callbackData.email}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand"
+                        onBlur={handleBlur}
+                        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                          touched.email && validationErrors.email 
+                            ? 'border-red-500' 
+                            : 'border-gray-300'
+                        }`}
                         required
                       />
+                      {touched.email && validationErrors.email && (
+                        <p className="text-red-500 text-sm mt-1">{validationErrors.email}</p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                        Téléphone *
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={callbackData.phone}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                          touched.phone && validationErrors.phone 
+                            ? 'border-red-500' 
+                            : 'border-gray-300'
+                        }`}
+                        placeholder="06 12 34 56 78"
+                        required
+                      />
+                      {touched.phone && validationErrors.phone && (
+                        <p className="text-red-500 text-sm mt-1">{validationErrors.phone}</p>
+                      )}
+                    </div>
+
+                    {/* CAPTCHA */}
+                    <div className="pt-4 border-t border-gray-200">
+                      <Captcha onValidation={setCaptchaValid} />
                     </div>
 
                     {error && (
@@ -572,8 +988,12 @@ const FormationPage = () => {
 
                     <button
                       type="submit"
-                      disabled={loading}
-                      className="w-full bg-[#FFD400] text-black py-2 px-4 rounded-md hover:bg-[#E0BB00] transition-colors flex items-center justify-center"
+                      disabled={loading || !captchaValid}
+                      className={`w-full py-2 px-4 rounded-md transition-colors flex items-center justify-center ${
+                        loading || !captchaValid
+                          ? 'bg-gray-400 cursor-not-allowed text-gray-600'
+                          : 'bg-[#FFD400] text-black hover:bg-[#E0BB00]'
+                      }`}
                     >
                       {loading ? (
                         <>
