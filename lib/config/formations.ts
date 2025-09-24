@@ -44,6 +44,7 @@ const formationsConfig: FormationsConfig = {
       image: '/images/1.jpeg',
       duration: '7h',
       formateur: 'Céline Mas',
+      formationType: 'non-certifiante',
       prices: {
         individuel: { price: '1500€', label: '' },
         collectif: { price: '1500€', label: '' }
@@ -155,6 +156,7 @@ const formationsConfig: FormationsConfig = {
       image: '/images/2.png',
       duration: '14h',
       formateur: 'Céline Mas',
+      formationType: 'non-certifiante',
       prices: {
         individuel: { price: '2500€', label: '' },
         collectif: { price: '2500€', label: '' }
@@ -256,7 +258,7 @@ const formationsConfig: FormationsConfig = {
         }
       ]
     },
-        {
+    {
       id: 'biais-cognitifs',
       title: 'Décoder les biais cognitifs pour mieux travailler',
       shortDescription: 'Déjouez les pièges de votre cerveau ! Apprenez à identifier et neutraliser les biais cognitifs pour gagner en sérénité et en performance.',
@@ -265,7 +267,8 @@ const formationsConfig: FormationsConfig = {
       category: 'Sciences cognitives',
       image: '/images/3.jpg',
       duration: '7h',
-      formateur: 'Céline Mas (avec la contribution d’Alizon Pergher, PHD)',
+      formateur: 'Céline Mas (avec la contribution d\'Alizon Pergher, PHD)',
+      formationType: 'non-certifiante',
       prices: {
         individuel: { price: '1500€', label: '' },
         collectif: { price: '1500€', label: '' }
@@ -376,6 +379,7 @@ const formationsConfig: FormationsConfig = {
       image: '/images/4.webp',
       duration: '7h',
       formateur: 'Céline Mas',
+      formationType: 'non-certifiante',
       prices: {
         individuel: { price: '1500€', label: '' },
         collectif: { price: '1500€', label: '' }
@@ -488,6 +492,7 @@ const formationsConfig: FormationsConfig = {
       image: '/images/5.jpeg',
       duration: '7h',
       formateur: 'Céline Mas',
+      formationType: 'non-certifiante',
       prices: {
         individuel: { price: '1500€', label: '' },
         collectif: { price: '1500€', label: '' }
@@ -599,6 +604,7 @@ const formationsConfig: FormationsConfig = {
       image: '/images/6.jpeg',
       duration: '7h',
       formateur: 'Céline Mas',
+      formationType: 'non-certifiante',
       prices: {
         individuel: { price: '1500€', label: '' },
         collectif: { price: '1500€', label: '' }

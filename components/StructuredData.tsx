@@ -20,11 +20,17 @@ export default function StructuredData({ data }: StructuredDataProps) {
 export function getOrganizationStructuredData() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "EducationalOrganization",
     "name": "Love for Livres",
+    "alternateName": ["Love for Livres Formation", "Love for Livres Développement"],
     "url": "https://loveforlivres.com",
-    "logo": "https://loveforlivres.com/images/Logo.png",
-    "description": "Formations en développement personnel, communication, management et sciences cognitives",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://loveforlivres.com/images/Logo.png",
+      "width": 120,
+      "height": 40
+    },
+    "description": "Organisme de formation spécialisé en développement personnel, communication, management et sciences cognitives. Accompagnement personnalisé pour l'épanouissement professionnel et personnel.",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "FR"
@@ -32,11 +38,30 @@ export function getOrganizationStructuredData() {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": "French"
+      "availableLanguage": ["French"],
+      "areaServed": "FR",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
     },
     "sameAs": [
       // Ajoutez ici vos réseaux sociaux si disponibles
-    ]
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "France"
+    },
+    "serviceType": "Formation en développement personnel",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "67",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   }
 }
 

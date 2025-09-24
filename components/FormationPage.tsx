@@ -99,6 +99,25 @@ const FormationPage = () => {
 
   // Fonction pour formater les informations de certification
   const formatCertification = (formation: any) => {
+    // Priorité au champ formationType (pour l'API future)
+    if (formation?.formationType) {
+      switch (formation.formationType) {
+        case 'non-certifiante':
+          return 'Formation non-certifiante';
+        case 'partenariat':
+          if (formation.certificationDetails?.partenaire) {
+            return `En partenariat avec ${formation.certificationDetails.partenaire}`;
+          }
+          break;
+        case 'certifiante':
+          if (formation.certificationDetails?.organization) {
+            return `Certifié par ${formation.certificationDetails.organization}`;
+          }
+          break;
+      }
+    }
+    
+    // Fallback sur la logique existante (compatibilité)
     if (!formation?.certificationDetails) return null;
     
     const { name, code, organization, partenaire } = formation.certificationDetails;

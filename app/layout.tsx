@@ -6,6 +6,7 @@ import ScrollToTop from '../components/ScrollToTop'
 import { GoogleTagManager, GoogleTagManagerNoScript } from '../components/GoogleTagManager'
 import { GTM_CONFIG } from '../lib/config/gtm'
 import StructuredData, { getOrganizationStructuredData, getWebsiteStructuredData } from '../components/StructuredData'
+import { JsonLd } from '../components/JsonLd'
 import { SEO_CONFIG } from '../lib/config/seo'
 
 export const metadata: Metadata = {
@@ -79,6 +80,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         {GTM_CONFIG.ENABLED && <GoogleTagManager gtmId={GTM_CONFIG.GTM_ID} />}
+        <JsonLd />
         <StructuredData data={getOrganizationStructuredData()} />
         <StructuredData data={getWebsiteStructuredData()} />
       </head>

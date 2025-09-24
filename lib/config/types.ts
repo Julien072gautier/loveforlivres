@@ -164,6 +164,9 @@ export interface Formation {
   evaluationMethods?: string[]; // Modalités d'évaluation
   accessibility?: string[]; // Informations sur l'accessibilité
   
+  // Type de formation : certifiante, partenariat, ou non-certifiante
+  formationType: 'certifiante' | 'partenariat' | 'non-certifiante';
+  
   // Champs additionnels pour la structure complète
   certificationDetails?: {
     name: string;
