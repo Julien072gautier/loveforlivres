@@ -1,5 +1,5 @@
 // Générateur de métadonnées SEO dynamique pour Love for Livres
-import { formations } from './config/formations'
+import formationsConfig from './config/formations'
 
 export interface SEOData {
   title: string
@@ -84,7 +84,7 @@ export const formationSEOData: Record<string, any> = {
 }
 
 export function generateFormationSEO(formationSlug: string): SEOData {
-  const formation = formations.find(f => f.slug === formationSlug)
+  const formation = formationsConfig.formations.find(f => f.slug === formationSlug)
   const seoData = formationSEOData[formationSlug]
   
   if (!formation || !seoData) {
