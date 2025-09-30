@@ -173,6 +173,7 @@ export interface Formation {
     code: string;
     organization: string;
     description: string;
+    titre?: string; // Titre RNCP (pour les codes RNCPxxxx)
     partenaire?: string; // Nom du partenaire pour les formations en partenariat
     partenaireLogo?: string; // Logo du partenaire
     partenaireUrl?: string; // URL du partenaire
@@ -181,6 +182,9 @@ export interface Formation {
       format: string[];
       successRate?: string;
     };
+    dureeEnregistrement?: string; // Durée d'enregistrement de la formation
+    dateEnregistrement?: string; // Date d'enregistrement de la formation
+    rate?: string; // Taux de réussite de la formation
   };
   
   modalites?: string; // "Présentiel ou distanciel ou mixte"

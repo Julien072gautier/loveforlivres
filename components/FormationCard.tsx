@@ -167,6 +167,18 @@ const FormationCard: React.FC<FormationCardProps> = ({ formation, isCompact = fa
                   <span><strong>Certification:</strong> {certificationText}</span>
                 </div>
               )}
+              {formation.cpfEligible && formation.certificationDetails?.dureeEnregistrement && (
+                <div className="flex items-center text-gray-600">
+                  <Clock size={18} className="mr-2" />
+                  <span><strong>Durée d'enregistrement:</strong> {formation.certificationDetails.dureeEnregistrement}</span>
+                </div>
+              )}
+              {formation.cpfEligible && formation.certificationDetails?.dateEnregistrement && (
+                <div className="flex items-center text-gray-600">
+                  <Award size={18} className="mr-2" />
+                  <span><strong>Date d'enregistrement:</strong> {formation.certificationDetails.dateEnregistrement}</span>
+                </div>
+              )}
             </div>
           )}
         
