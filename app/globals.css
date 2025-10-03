@@ -3,21 +3,21 @@
 
 /* Global link styles with background */
 a:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.no-bg) {
-  background-color: #FFD400;
-  color: black;
+  background-color: #8b308e;
+  color: white;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   transition: background-color 0.3s;
 }
 
 a:not(.btn-primary):not(.btn-secondary):not(.btn-outline):not(.no-bg):hover {
-  background-color: #E0BB00;
+  background-color: #6d256f;
 }
 
 @layer components {
   /* Standardized CTA Button Styles using the new color scheme */
   .btn-primary {
-    @apply bg-[#FFD400] text-black font-medium transition-all duration-300 hover:bg-[#E0BB00] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#FFD400] focus:ring-opacity-50;
+    @apply bg-[#8b308e] text-white font-medium transition-all duration-300 hover:bg-[#6d256f] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#8b308e] focus:ring-opacity-50;
   }
   
   .btn-secondary {

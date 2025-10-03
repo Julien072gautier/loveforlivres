@@ -207,7 +207,7 @@ const FormationsPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Développez vos compétences ou celles de vos équipes grâce à des formations efficaces et enrichissantes.</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Libérez votre potentiel et celui de vos équipes grâce à des formations centrées sur l’humain et les sciences cognitives.</h1>
             <p className="text-gray-600 text-lg mb-4">
               Découvrez notre catalogue de formations en développement personnel, communication, management et sciences cognitives conçues pour développer vos compétences professionnelles et booster votre carrière.
             </p>
@@ -224,9 +224,9 @@ const FormationsPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Développez vos compétences ou celles de vos équipes grâce à des formations efficaces et enrichissantes.</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Libérez votre potentiel et celui de vos équipes grâce à des formations centrées sur l’humain et les sciences cognitives.</h1>
           <p className="text-gray-600 text-lg mb-4">
-            Découvrez notre catalogue de formations en développement personnel, communication, management et sciences cognitives conçues pour développer vos compétences professionnelles et booster votre carrière.
+          Des programmes sur-mesure en soft skills, QVCT, créativité & management, conçus pour transformer l’engagement en résultats tangibles..
           </p>
           <div 
             className="rounded-lg p-6 mb-6 text-white"
@@ -241,7 +241,7 @@ const FormationsPage: React.FC = () => {
               <h3 className="text-lg font-semibold text-white">Financement facilité</h3>
             </div>
             <p className="text-white text-opacity-90">
-              Toutes nos formations peuvent faire l'objet d'un financement par les dispositifs habituels : <strong>OPCO</strong>, <strong>Pôle emploi</strong> ou autres aides à la formation. N'hésitez pas à nous contacter, nous vous accompagnons dans les démarches.
+              Toutes nos formations peuvent faire l'objet d'un financement par les dispositifs habituels : <strong>OPCO</strong>, <strong>France Travail</strong> ou autres aides à la formation. N'hésitez pas à nous contacter, nous vous accompagnons dans les démarches.
             </p>
           </div>
         </div>
@@ -481,7 +481,7 @@ const FormationsPage: React.FC = () => {
                 setSelectedCategory('Toutes les catégories');
                 setCpfFilter('all');
               }}
-              className="bg-[#FFD400] text-black font-medium hover:bg-[#E0BB00] px-2 py-1 rounded"
+              className="bg-[#8b308e] text-white font-medium hover:bg-[#6d256f] px-2 py-1 rounded"
             >
               Réinitialiser les filtres
             </button>

@@ -20,8 +20,8 @@ const formationsConfig: FormationsConfig = {
       icon: 'MessageCircle'
     },
     {
-      id: 'Développement personnel',
-      name: 'Développement personnel',
+      id: 'Développement professionnel',
+      name: 'Développement professionnel',
       description: 'Développez votre potentiel et votre bien-être professionnel',
       icon: 'Smile'
     },
@@ -50,7 +50,7 @@ const formationsConfig: FormationsConfig = {
         collectif: { price: '1500€', label: '' }
       },
       dates: {
-        collectif: ["A COMPLETER"],
+        collectif: ["Aucune session prévue pour le moment"],
         individuel: []
       },
       cpfEligible: false,
@@ -162,7 +162,7 @@ const formationsConfig: FormationsConfig = {
         collectif: { price: '2500€', label: '' }
       },
       dates: {
-        collectif: ["A COMPLETER"],
+        collectif: ["Aucune session prévue pour le moment"],
         individuel: []
       },
       cpfEligible: false,
@@ -274,7 +274,7 @@ const formationsConfig: FormationsConfig = {
         collectif: { price: '1500€', label: '' }
       },
       dates: {
-        collectif: ["A COMPLETER"],
+        collectif: ["Aucune session prévue pour le moment"],
         individuel: []
       },
       cpfEligible: false,
@@ -375,7 +375,7 @@ const formationsConfig: FormationsConfig = {
       shortDescription: 'Faites de l\'intelligence émotionnelle votre meilleur allié pour prendre les bonnes décisions, motiver les autres et gérer avec sérénité les défis du management.',
       fullDescription: 'Faites de l\'intelligence émotionnelle votre meilleur allié pour prendre les bonnes décisions, motiver les autres et gérer avec sérénité les défis du management.',
       slug: 'formation-intelligence-emotionnelle',
-      category: 'Développement personnel',
+      category: 'Développement professionnel',
       image: '/images/4.webp',
       duration: '7h',
       formateur: 'Céline Mas',
@@ -385,7 +385,7 @@ const formationsConfig: FormationsConfig = {
         collectif: { price: '1500€', label: '' }
       },
       dates: {
-        collectif: ["A COMPLETER"],
+        collectif: ["Aucune session prévue pour le moment"],
         individuel: []
       },
       cpfEligible: false,
@@ -498,7 +498,7 @@ const formationsConfig: FormationsConfig = {
         collectif: { price: '1500€', label: '' }
       },
       dates: {
-        collectif: ["A COMPLETER"],
+        collectif: ["Aucune session prévue pour le moment"],
         individuel: []
       },
       cpfEligible: false,
@@ -600,7 +600,7 @@ const formationsConfig: FormationsConfig = {
       shortDescription: 'Libérez-vous du stress avant qu\'il ne vous épuise : adoptez des stratégies innovantes pour regagner en énergie, prévenir le burnout et cultiver un équilibre dans la durée !',
       fullDescription: 'Libérez-vous du stress avant qu\'il ne vous épuise : adoptez des stratégies innovantes pour regagner en énergie, prévenir le burnout et cultiver un équilibre dans la durée !',
       slug: 'formation-gestion-stress-burnout',
-      category: 'Développement personnel',
+      category: 'Développement professionnel',
       image: '/images/6.jpeg',
       duration: '7h',
       formateur: 'Céline Mas',
@@ -610,7 +610,7 @@ const formationsConfig: FormationsConfig = {
         collectif: { price: '1500€', label: '' }
       },
       dates: {
-        collectif: ["A COMPLETER"],
+        collectif: ["Aucune session prévue pour le moment"],
         individuel: []
       },
       cpfEligible: false,

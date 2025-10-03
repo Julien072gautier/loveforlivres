@@ -301,14 +301,14 @@ const FormationPage = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={() => setIsCallbackOpen(true)}
-                className="bg-[#FFD400] text-black hover:bg-[#E0BB00] font-medium py-3 px-6 rounded-md transition-colors flex items-center justify-center"
+                className="bg-[#8b308e] text-white hover:bg-[#6d256f] font-medium py-3 px-6 rounded-md transition-colors flex items-center justify-center"
               >
                 <MessageSquare size={18} className="mr-2" />
                 Demander plus d'informations
               </button>
               <a 
                 href={`tel:${themeConfig.company.contact.phone?.replace(/\s/g, '')}`}
-                className="bg-[#FFD400] text-black border-0 hover:bg-[#E0BB00] font-medium py-3 px-6 rounded-md transition-colors inline-flex items-center justify-center"
+                className="bg-[#8b308e] text-white border-0 hover:bg-[#6d256f] font-medium py-3 px-6 rounded-md transition-colors inline-flex items-center justify-center"
               >
                 <Phone size={18} className="mr-2" />
                 {themeConfig.company.contact.phone}
@@ -376,12 +376,12 @@ const FormationPage = () => {
                   <div className="flex gap-4 mb-4">
                   <button 
                       onClick={() => setSelectedModality('collectif')} 
-                      className={`px-4 py-2 border rounded-md ${selectedModality === 'collectif' ? 'bg-[#FFD400] text-black' : 'bg-gray-100'}`}
+                      className={`px-4 py-2 border rounded-md ${selectedModality === 'collectif' ? 'bg-[#8b308e] text-white' : 'bg-gray-100'}`}
                     >
                       Collectif
                     </button><button 
                       onClick={() => setSelectedModality('individuel')} 
-                      className={`px-4 py-2 border rounded-md ${selectedModality === 'individuel' ? 'bg-[#FFD400] text-black' : 'bg-gray-100'}`}
+                      className={`px-4 py-2 border rounded-md ${selectedModality === 'individuel' ? 'bg-[#ffcc33] text-black' : 'bg-gray-100'}`}
                     >
                       Individuel
                     </button>
@@ -870,7 +870,7 @@ const FormationPage = () => {
               </button>
               <a
                 href={`tel:${themeConfig.company.contact.phone?.replace(/\s/g, '')}`}
-                className="bg-[#FFD400] text-black font-medium py-3 px-6 rounded-md hover:bg-[#E0BB00] transition-colors inline-flex items-center justify-center"
+                className="bg-[#8b308e] text-white font-medium py-3 px-6 rounded-md hover:bg-[#6d256f] transition-colors inline-flex items-center justify-center"
               >
                 <Phone size={18} className="mr-2" />
                 {themeConfig.company.contact.phone}
@@ -1058,7 +1058,7 @@ const FormationPage = () => {
                       className={`w-full py-2 px-4 rounded-md transition-colors flex items-center justify-center ${
                         loading || !captchaValid
                           ? 'bg-gray-400 cursor-not-allowed text-gray-600'
-                          : 'bg-[#FFD400] text-black hover:bg-[#E0BB00]'
+                          : 'bg-[#8b308e] text-white hover:bg-[#6d256f]'
                       }`}
                     >
                       {loading ? (

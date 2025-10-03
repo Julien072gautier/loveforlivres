@@ -281,8 +281,8 @@ const FormulaireBesoinPage = () => {
                   <label className={`
                     flex items-center justify-center p-4 rounded-lg border-2 cursor-pointer transition-all
                     ${formData.trainingType === 'individuelle' 
-                      ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                      ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                   `}>
                     <input
                       type="radio"
@@ -298,8 +298,8 @@ const FormulaireBesoinPage = () => {
                   <label className={`
                     flex items-center justify-center p-4 rounded-lg border-2 cursor-pointer transition-all
                     ${formData.trainingType === 'collective' 
-                      ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                      ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                   `}>
                     <input
                       type="radio"
@@ -324,8 +324,8 @@ const FormulaireBesoinPage = () => {
                   <label className={`
                     flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all
                     ${formData.modality === 'presentiel' 
-                      ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                      ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                   `}>
                     <input
                       type="radio"
@@ -342,8 +342,8 @@ const FormulaireBesoinPage = () => {
                   <label className={`
                     flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all
                     ${formData.modality === 'visio' 
-                      ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                      ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                   `}>
                     <input
                       type="radio"
@@ -360,8 +360,8 @@ const FormulaireBesoinPage = () => {
                   <label className={`
                     flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all
                     ${formData.modality === 'mixte' 
-                      ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                      ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                   `}>
                     <input
                       type="radio"
@@ -387,8 +387,8 @@ const FormulaireBesoinPage = () => {
                     <label className={`
                       flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all
                       ${formData.modalityDetail === 'presentiel' 
-                        ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                        ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                     `}>
                       <input
                         type="radio"
@@ -405,8 +405,8 @@ const FormulaireBesoinPage = () => {
                     <label className={`
                       flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all
                       ${formData.modalityDetail === 'visio' 
-                        ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                      : 'border-gray-200 hover:border-[#FFD400]'}
+                        ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                      : 'border-gray-200 hover:border-[#8b308e]'}
                     `}>
                       <input
                         type="radio"
@@ -434,8 +434,8 @@ const FormulaireBesoinPage = () => {
                     <label className={`
                       flex items-center justify-center p-4 rounded-lg border-2 cursor-pointer transition-all
                       ${formData.gender === 'M' 
-                        ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                        : 'border-gray-200 hover:border-[#FFD400]'}
+                        ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                        : 'border-gray-200 hover:border-[#8b308e]'}
                     `}>
                       <input
                         type="radio"
@@ -452,8 +452,8 @@ const FormulaireBesoinPage = () => {
                     <label className={`
                       flex items-center justify-center p-4 rounded-lg border-2 cursor-pointer transition-all
                       ${formData.gender === 'F' 
-                        ? 'border-[#FFD400] bg-[#FFD400] text-black' 
-                        : 'border-gray-200 hover:border-[#FFD400]'}
+                        ? 'border-[#8b308e] bg-[#8b308e] text-white' 
+                        : 'border-gray-200 hover:border-[#8b308e]'}
                     `}>
                       <input
                         type="radio"
@@ -595,7 +595,7 @@ const FormulaireBesoinPage = () => {
                   w-full py-3 px-4 rounded-md font-medium transition-all
                   ${loading || !formData.modality || (!formData.modalityDetail && formData.modality === 'mixte')
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'border-[#FFD400] bg-[#FFD400] text-black'}
+                    : 'border-[#8b308e] bg-[#8b308e] text-white'}
                 `}
               >
                 {loading ? (
