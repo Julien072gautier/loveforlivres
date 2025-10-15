@@ -226,7 +226,7 @@ const FormationsPage: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Libérez votre potentiel et celui de vos équipes grâce à des formations centrées sur l’humain et les sciences cognitives.</h1>
           <p className="text-gray-600 text-lg mb-4">
-          Des programmes sur-mesure en soft skills, QVCT, créativité & management, conçus pour transformer l’engagement en résultats tangibles..
+          Des programmes sur-mesure en soft skills, QVCT, créativité & management, conçus pour transformer l’engagement en résultats tangibles.
           </p>
           <div 
             className="rounded-lg p-6 mb-6 text-white"

@@ -813,13 +813,13 @@ const FormationPage = () => {
                   <div className="flex-1">
                     <h3 className="font-semibold mb-3 text-lg text-white">Accessibilité de la formation</h3>
                     <ul className="space-y-2 text-white text-opacity-90">
-                      {formation.accessibility.map((item, index) => (
-                        <li key={index} className="flex items-start">
+                  {formation.accessibility.map((item, index) => (
+                    <li key={index} className="flex items-start">
                           <CheckCircle className="text-white mr-2 mt-1 flex-shrink-0" size={16} />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
                   </div>
                 </div>
               </div>
@@ -951,47 +951,47 @@ const FormationPage = () => {
                         <label htmlFor="firstName" className="block text-gray-700 font-medium mb-2">
                           Prénom *
                         </label>
-                        <input
-                          type="text"
+                      <input
+                        type="text"
                           id="firstName"
                           name="firstName"
                           value={callbackData.firstName}
-                          onChange={handleChange}
+                        onChange={handleChange}
                           onBlur={handleBlur}
                           className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                             touched.firstName && validationErrors.firstName 
                               ? 'border-red-500' 
                               : 'border-gray-300'
                           }`}
-                          required
-                        />
+                        required
+                      />
                         {touched.firstName && validationErrors.firstName && (
                           <p className="text-red-500 text-sm mt-1">{validationErrors.firstName}</p>
                         )}
-                      </div>
+                    </div>
                       
                       <div>
                         <label htmlFor="lastName" className="block text-gray-700 font-medium mb-2">
                           Nom *
                         </label>
-                        <input
+                      <input
                           type="text"
                           id="lastName"
                           name="lastName"
                           value={callbackData.lastName}
-                          onChange={handleChange}
+                        onChange={handleChange}
                           onBlur={handleBlur}
                           className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                             touched.lastName && validationErrors.lastName 
                               ? 'border-red-500' 
                               : 'border-gray-300'
                           }`}
-                          required
-                        />
+                        required
+                      />
                         {touched.lastName && validationErrors.lastName && (
                           <p className="text-red-500 text-sm mt-1">{validationErrors.lastName}</p>
                         )}
-                      </div>
+                    </div>
                     </div>
                     
                     <div>

@@ -33,10 +33,10 @@ const themeConfig: ThemeConfig = {
   // Paramètres de marque et couleurs
   brand: {
     // Couleur principale (doit correspondre à tailwind.config.js)
-    primaryColor: '#8b308e',
+    primaryColor: '#50a2d6',
     // Nom de la couleur dans Tailwind
     primaryColorName: 'brand',
-    secondaryColor: '#ffcc33',
+    secondaryColor: '#8b308e',
     accentColor: '#1b230a',
     // Options de police
     fontFamily: {
@@ -50,12 +50,12 @@ const themeConfig: ThemeConfig = {
     header: {
       url: '/images/Logo.png',
       alt: 'Love for Livres',
-      link: 'http://www.loveforlivres.com/'
+      link: 'https://loveforlivres.com/'
     },
     footer: {
       url: '/images/Logo.png',
       alt: 'Love for Livres',
-      link: 'http://www.loveforlivres.com/'
+      link: 'https://loveforlivres.com/'
     },
     // Logo alternatif ou favicon
     favicon: {
@@ -89,8 +89,8 @@ const themeConfig: ThemeConfig = {
 
   // Configuration des liens externes
   externalLinks: {
-    skillupPlatform: 'https://skillup.accertif.fr',
-    skillupLabel: 'Accès Plateforme',
+    skillupPlatform: 'https://loveforlivres.com/',
+    skillupLabel: 'Accès Site Principal',
     certificationPartner: 'https://www.certificationpartner.fr'
   },
 
@@ -105,8 +105,8 @@ const themeConfig: ThemeConfig = {
     ],
     // Liens de l'en-tête (CTA)
     ctaButton: {
-      text: 'Accès Plateforme',
-      url: 'https://skillup.accertif.fr',
+      text: 'Accès Site Principal',
+      url: 'https://loveforlivres.com/',
       isExternal: true
     }
   },
